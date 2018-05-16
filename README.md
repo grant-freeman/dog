@@ -7,3 +7,9 @@ and am a sucker for bots.
 Built with [Heroku](https://www.heroku.com/),
 [Python](https://www.python.org/),
 and most importantly, [Discord](https://discordapp.com/).
+
+## TODO
+
+* get another token
+* create test server
+* potentially get others onto the repo
