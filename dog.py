@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 import requests
 import random
-import dog_config
+import config
 
 bot = commands.Bot(command_prefix='d!', description='dog bot')
 REACT_LIST = ['\U0001F44D', '\U0001F44E', '\U0001F937']
@@ -97,4 +97,4 @@ def urlify(raw_response):
 #     elif 'dog' in message.content or 'woof' in message.content or client.user.id in message.content:
 #         await client.send_message(message.channel, 'woof')
 
-bot.run(dog_config.token)
+bot.run(config.token)
