@@ -7,6 +7,9 @@ import config
 
 bot = commands.Bot(command_prefix='d!', description='dog bot')
 REACT_LIST = ['\U0001F44D', '\U0001F44E', '\U0001F937']
+TERF_RESPONSES = ['https://cdn.discordapp.com/attachments/415296704376733698/447919447580213278/image.jpg',
+'https://cdn.discordapp.com/attachments/415296704376733698/447953199689891850/image.jpg',
+"don't be shitty!! trans women are not a fetish!!"]
 
 @bot.event
 async def on_ready():
@@ -66,6 +69,23 @@ def urlify(raw_response):
     tmp = reversed(list(raw_response))
     clean_response = '/'.join(tmp)
     return clean_response
+
+def embedify(img_url):
+    embed = discord.Embed(title='No terfs allowed', color=0xDEADBF)
+    embed.set_image(url=img_url)
+    return embed
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if 'traps' in message.content or 'trap' in message.content:
+        tmp = random.choice(TERF_RESPONSES)
+        if tmp[:5] == 'https':
+            await bot.send_message(message.channel, embed=embedify(tmp))
+        else:
+            await bot.send_message(message.channel, tmp)
 
 # async def on_message(message):
 #     if message.author == client.user:
